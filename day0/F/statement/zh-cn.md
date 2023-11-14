@@ -54,8 +54,8 @@
 - 「摸鱼」时输出 `Robot <id> slacks off.`。其中 `<id>` 为一个整数，表示「执行」当前「指令」的机器人编号，下同。
 - 「移动」时输出 `Robot <id> moves its <side> hand towards Robot <id2>.`。其中 `<side>` 为 `left` 或 `right`，表示移动了哪只手（`left` 表示「左手」，`right` 表示「右手」）；`<id2>` 为一个整数，表示移动之后这只手指向的机器人的编号。
 - 「对调」时输出 `Robot <id> swaps a line of command with Robot <id2>.`。其中 `<id2>` 为一个整数，表示与之「对调」「指令」的机器人编号。
-- 「替换」时输出 `Robot <id> replaces a line of command of Robot <id2>.`。其中 `<id2>` 为一个整数，表示被「替换」「指令」的机器人编号。
 - 「镜像」取反时输出 `Robot <id> modifies a line of command of Robot <id2>.`。其中 `<id2>` 为一个整数，表示被「镜像」取反「指令」的机器人编号。
+- 「替换」时输出 `Robot <id> replaces a line of command of Robot <id2>.`。其中 `<id2>` 为一个整数，表示被「替换」「指令」的机器人编号。
 - 「执行」 `ACTIVATE` 指令「激活」（区别于你的一圈又一圈的「激活」）时输出 `Robot <id> activates Robot <id2>.`。其中  `<id2>` 为一个整数，表示被「激活」的机器人编号。
 - `TRIGGER` 指令由于不会被「执行」就不需要输出，但当它们被「触发」时，仍然需要按照上面的格式输出对应的「基础指令」被「执行」的信息。
 
