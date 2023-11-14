@@ -20,7 +20,6 @@ namespace io{
 }
 std::string buf;
 int n,m,k;
-Robot bot[111];
 struct Command;
 struct Robot{
 	int id;
@@ -29,7 +28,7 @@ struct Robot{
 	void init(int _id);
 	void activate();
 	void chktrigger(int type);
-};
+}bot[111];
 struct Command{
 	int h;
 	int type;
@@ -80,7 +79,6 @@ struct Trigger: Command{
 	int triggertype;
 	Command* command;
 	Trigger();
-	Trigger(Trigger* command);
 	virtual bool chktrigger(int type);
 	virtual void packedexecute(Robot* robot,bool rev=0);
 	virtual void execute(Robot* robot,bool rev=0);
@@ -102,7 +100,7 @@ int main(){
 	}
 	while(1){
 		for(int i=0;i<n;++i){
-			bot[i]->activate();
+			bot[i].activate();
 		}
 	}
 	return 0;
@@ -187,7 +185,7 @@ Move::Move(){
 }
 void Move::execute(Robot* robot,bool rev){
 	robot->hand[h^rev]=bot+(robot->hand[h^rev]->id+z)%n;
-	printf("Robot %d moves its %s hand towards Robot %d.\n",robot->id,std::vector<char*>{"left","right"}[h^rev],robot->hand[h^rev]->id);
+	printf("Robot %d moves its %s hand towards Robot %d.\n",robot->id,std::vector<std::string>{"left","right"}[h^rev].c_str(),robot->hand[h^rev]->id);
 }
 Swap::Swap(){
 	type=SWAP;
@@ -253,11 +251,6 @@ Trigger::Trigger(){
 	else assert(false);
 	command=newcommand();
 	command->type|=TRIGGER;
-}
-Trigger::Trigger(Trigger* command){
-	type=TRIGGER;
-	triggertype=command->triggertype;
-	this->command=command->command;
 }
 bool Trigger::chktrigger(int type){
 	return triggertype&type;
