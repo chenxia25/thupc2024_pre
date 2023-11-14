@@ -18,7 +18,6 @@ namespace io{
 		return std::string(buf);
 	}
 }
-std::string buf;
 int n,m,k;
 struct Command;
 struct Robot{
