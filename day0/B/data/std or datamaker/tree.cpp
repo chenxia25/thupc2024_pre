@@ -89,6 +89,7 @@ void dfs(int x,int y)
 	t[x].v=0,t[x].tg=0;
 	if(t[tl[x]].v>=0)tl[x]=m1(tl[x],x);
 	else tr[x]=m2(tr[x],x);
+	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$AAAAAAAAAAA1%\n";
 	while(t[tl[x]].siz<=A&&t[tr[x]].siz)
 	{
 //		cerr<<t[tl[x]].siz<<"@#23\n";
@@ -114,7 +115,7 @@ void dfs(int x,int y)
 		}
 		else ad(tl[x],-2),ad(tr[x],2);
 	}
-//	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$%\n";
+	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$!!!!!!!!!!!!!!!!!1%\n";
 	
 }
 char ED;
