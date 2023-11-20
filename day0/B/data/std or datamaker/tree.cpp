@@ -80,44 +80,46 @@ void dfs(int x,int y)
 	{
 		if(e[i].to==y)continue;
 		dfs(e[i].to,x);
-		cerr<<t[tl[e[i].to]].siz<<" "<<t[tl[x]].siz<<"##\n";
+//		cerr<<t[tl[e[i].to]].siz<<" "<<t[tl[x]].siz<<"##\n";
 		tl[x]=m1(tl[x],tl[e[i].to]);
-		cerr<<t[tl[e[i].to]].siz<<" "<<t[tl[x]].siz<<"QQ\n";
+//		cerr<<t[tl[e[i].to]].siz<<" "<<t[tl[x]].siz<<"QQ\n";
 		tr[x]=m2(tr[x],tr[e[i].to]);
 	}
 	
 	t[x].v=0,t[x].tg=0;
 	if(t[tl[x]].v>=0)tl[x]=m1(tl[x],x);
 	else tr[x]=m2(tr[x],x);
-	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$AAAAAAAAAAA1%\n";
+//	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$AAAAAAAAAAA1%\n";
 	while(t[tl[x]].siz<=A&&t[tr[x]].siz)
 	{
 //		cerr<<t[tl[x]].siz<<"@#23\n";
-		y=tr[x],t[y].siz=1,t[y].l=t[y].r=0,t[y].dst=0;
+		y=tr[x];
 		tr[x]=m2(t[tr[x]].l,t[tr[x]].r);
+		t[y].siz=1,t[y].l=t[y].r=0,t[y].dst=0;
 		tl[x]=m1(tl[x],y);
 	}
-	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$BBBBBBBBBB1%\n";
+//	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$BBBBBBBBBB1%\n";
 	while(t[tl[x]].siz>A)
 	{
 //		cerr<<t[tl[x]].siz<<"@#ab\n";
-		y=tl[x],t[y].siz=1,t[y].l=t[y].r=0,t[y].dst=0;
+		y=tl[x];
 		tl[x]=m1(t[tl[x]].l,t[tl[x]].r);
+		t[y].siz=1,t[y].l=t[y].r=0,t[y].dst=0;
 		tr[x]=m2(tr[x],y);
-		if(x==6)cerr<<x<<" "<<t[tl[x]].siz<<"^%^%\n";
 	}
 	if(x!=1)
 	{
 		if(tk&1)
 		{
 			ad(tl[x],-2);
-			y=tr[x],t[y].siz=1,t[y].l=t[y].r=0,t[y].dst=0;
+			y=tr[x];
 			tr[x]=m2(t[tr[x]].l,t[tr[x]].r);
+			t[y].siz=1,t[y].l=t[y].r=0,t[y].dst=0;
 			ad(tr[x],2),tr[x]=m2(tr[x],y);
 		}
 		else ad(tl[x],-2),ad(tr[x],2);
 	}
-	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$!!!!!!!!!!!!!!!!!1%\n";
+//	cerr<<x<<" "<<t[tl[x]].siz<<" "<<t[tr[x]].siz<<"$!!!!!!!!!!!!!!!!!1%\n";
 	
 }
 char ED;
