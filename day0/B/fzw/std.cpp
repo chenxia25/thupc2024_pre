@@ -147,7 +147,7 @@ char ED;
 int main(){
 	t[0].dst=-1;
 	cerr<<abs(&ST-&ED)/1024.0/1024<<"\n";
-	freopen("a.in","r",stdin);
+//	freopen("a.in","r",stdin);
 //	freopen("a.out","w",stdout);
 //	freopen("tree.in","r",stdin);
 //	freopen("tree.out","w",stdout);
