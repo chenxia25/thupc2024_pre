@@ -47,7 +47,6 @@ int main(){
 	for(int z=0;z<=1;++z){
 		for(int i=1;i<=n;++i){
 			int tmp=dmin(a[i],v[i].b);
-			if(a[i])vis[i]=1;
 			wild+=tmp;
 			a[i]-=tmp;
 			v[i].b-=tmp;
@@ -55,6 +54,7 @@ int main(){
 				wild+=v[i].comb+1;
 				v[i].comb=0;
 				a[i]--;
+				vis[i]=1;
 			}
 			if(wild&&v[i].comb){
 				wild+=v[i].comb;
@@ -68,9 +68,10 @@ int main(){
 	}
 	long long ans=wild;
 	for(int i=1;i<=n;++i){
-		if(vis[i]){
+		if(vis[i]||a[i]){
 			ans+=v[i].c;
 			v[i].c=0;
+			ans+=a[i];
 		}
 	}
 	std::sort(v+1,v+n+1,[&](const it &x, const it &y){return x.c>y.c;});

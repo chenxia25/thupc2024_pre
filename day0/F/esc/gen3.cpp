@@ -34,21 +34,23 @@ int main(){
 	int n=100,m=7,k=300000;
 	printf("%d %d %d\n",n,m,k);
 	for(int i=0;i<n;++i){
-		if(i&1) printf("%d %d\n",i,(i+1)%n);
-			else printf("%d %d\n",(i+1)%n,i);
-		if(i==0){
-			for(int j=1;j<=300000/7;++j){
-				printf("REPLACE 0 1 ");
-			}
+		if(i%2==0)printf("%d %d\n",(i+1)%n,(i+2)%n);
+		if(i%2==1)printf("%d %d\n",i,(i+1)%n);
+		if(i%2==0){
+			if(i==0)
+				printf("REPLACE 1 1 ");
+				for(int j=1;j<300000/7;++j){
+					printf("REPLACE 0 1 ");
+				}
 			puts("SLACKOFF");
-			printf("MIRROR 0 1\n");
+			printf("MIRROR 1 1\n");
+			printf("MOVE 1 %d\n",n-2);
 			printf("MIRROR 1 1\n");
 			printf("SWAP 1 1 6\n");
-			printf("MOVE 1 2\n");
 			puts("SLACKOFF");
-			printf("MOVE 1 %d\n",n-2);
+			printf("MOVE 1 2\n");
 		}
-		else if(i&1){
+		if(i%2==1){
 			puts("SLACKOFF");
 			printf("SWAP 0 1 3\n");
 			puts("SLACKOFF");
@@ -56,15 +58,6 @@ int main(){
 			puts("SLACKOFF");
 			printf("SWAP 0 1 3\n");
 			printf("REPLACE 0 2 SLACKOFF\n");
-		}
-		else{
-			puts("SLACKOFF");
-			printf("MIRROR 0 1\n");
-			printf("MIRROR 1 1\n");
-			printf("SWAP 1 1 6\n");
-			printf("MOVE 1 2\n");
-			puts("SLACKOFF");
-			printf("MOVE 1 %d\n",n-2);
 		}
 	}
 	return 0;
