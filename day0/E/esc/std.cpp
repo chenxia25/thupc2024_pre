@@ -26,15 +26,22 @@ struct it{
 	int b,comb,c;
 }v[355555];
 bool vis[355555];
+int b[355555],c[355555];
 int main(){
 	int n=io::F();
 	for(int i=1;i<=n;++i){
 		a[i]=io::F();
 	}
 	for(int i=1;i<=n;++i){
-		int b=io::F(),c=io::F();
-		if(b)v[i]=(it){dmax(0,b-c-1),dmin(b-1,c),dmax(0,c-b+1)};
-			else v[i]=(it){0,0,c};
+		b[i]=io::F();
+	}
+	for(int i=1;i<=n;++i){
+		c[i]=io::F();
+	}
+	for(int i=1;i<=n;++i){
+		int b=::b[i],c=::c[i];
+		if(b<=1||c==0)v[i]=(it){b,0,c};
+			else v[i]=(it){dmax(0,b-c-1),dmin(c,b-1),dmax(0,c-b+1)};
 	}
 	long long wild=0;
 	for(int z=0;z<=1;++z){
