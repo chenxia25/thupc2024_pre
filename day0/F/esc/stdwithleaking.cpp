@@ -189,8 +189,8 @@ void Move::execute(Robot* robot,bool rev){
 Swap::Swap(){
 	type=SWAP;
 	h=io::F();
-	x=io::F();
-	y=io::F();
+	x=io::F()-1;
+	y=io::F()-1;
 }
 void Swap::execute(Robot* robot,bool rev){
 	printf("Robot %d swaps a line of command with Robot %d.\n",robot->id,robot->hand[h^rev]->id);
@@ -199,7 +199,7 @@ void Swap::execute(Robot* robot,bool rev){
 Mirror::Mirror(){
 	type=MIRROR;
 	h=io::F();
-	x=io::F();
+	x=io::F()-1;
 }
 void Mirror::execute(Robot* robot,bool rev){
 	printf("Robot %d modifies a line of command of Robot %d.\n",robot->id,robot->hand[h^rev]->id);
@@ -208,7 +208,7 @@ void Mirror::execute(Robot* robot,bool rev){
 Replace::Replace(){
 	type=REPLACE;
 	h=io::F();
-	x=io::F();
+	x=io::F()-1;
 	command=newcommand();
 }
 void Replace::execute(Robot* robot,bool rev){
