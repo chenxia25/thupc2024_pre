@@ -26,38 +26,48 @@ std::mt19937_64 gen(dev());
 int R(int l,int r){
 	return std::uniform_int_distribution<int>(l,r)(gen);
 }
+int n=100,m=10,k=300000;
+void rndcommand(bool basic=false){
+	int type=R(1,7);
+	if(basic){
+		type=R(1,5);
+	}
+	switch(type){
+		case 1:
+		puts("SLACKOFF");
+		break;
+		case 2:
+		printf("MOVE %d %d\n",R(0,1),R(1,n-1));
+		break;
+		case 3:
+		printf("SWAP %d %d %d\n",R(0,1),R(1,m),R(1,m));
+		break;
+		case 4:
+		printf("MIRROR %d %d\n",R(0,1),R(1,m));
+		break;
+		case 5:
+		printf("REPLACE %d %d ",R(0,1),R(1,m));
+		rndcommand();
+		break;
+		case 6:
+		printf("ACTIVATE %d\n",R(0,1));
+		break;
+		case 7:
+		printf("TRIGGER %s: ",std::vector<std::string>{"SLACKOFF","MOVE","SWAP","MIRROR","REPLACE","ACTIVATE","TRIGGER"}[R(0,6)].c_str());
+		rndcommand(true);
+		break;
+	}
+}
 int main(){
-	int no=3;
+	int no=io::F();
 	char s[222];
 	sprintf(s,"%d.in",no);
 	freopen(s,"w",stdout);
-	int n=10,m=7,k=300000;
 	printf("%d %d %d\n",n,m,k);
 	for(int i=0;i<n;++i){
-		if(i%2==0)printf("%d %d\n",(i+1)%n,(i+2)%n);
-		if(i%2==1)printf("%d %d\n",i,(i+1)%n);
-		if(i%2==0){
-			if(i==0)
-				printf("REPLACE 1 1 ");
-				for(int j=1;j<58000/7;++j){
-					printf("REPLACE 0 1 ");
-				}
-			puts("SLACKOFF");
-			printf("MIRROR 1 1\n");
-			printf("MOVE 1 %d\n",n-2);
-			printf("MIRROR 1 1\n");
-			printf("SWAP 1 1 6\n");
-			puts("SLACKOFF");
-			printf("MOVE 1 2\n");
-		}
-		if(i%2==1){
-			puts("SLACKOFF");
-			printf("SWAP 0 1 3\n");
-			puts("SLACKOFF");
-			printf("SWAP 0 1 5\n");
-			puts("SLACKOFF");
-			printf("SWAP 0 1 3\n");
-			printf("REPLACE 0 2 SLACKOFF\n");
+		printf("%d %d\n",R(0,n-1),R(0,n-1));
+		for(int j=1;j<=m;++j){
+			rndcommand();
 		}
 	}
 	return 0;
