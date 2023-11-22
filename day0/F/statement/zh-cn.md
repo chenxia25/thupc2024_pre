@@ -65,19 +65,47 @@
 
 {{ self.title_sample_description() }}
 
+`TRIGGER` 指令的判断条件是「执行」完毕之后。注意不能「触发」自己的 `TRIGGER` 指令。
+
 {{ s('sample', 2) }}
+
+{{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+注意在「执行」前面的「指令」时后面的「指令」可能会发生更改，这时需要「执行」更改后的「指令」。
+
+{{ s('sample', 3) }}
+
+{{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+`ACTIVATE` 指令「激活」另一个机器人时，当那个机器人的所有「指令」「执行」完毕后，该「指令」才算「执行」完毕。
+
+{{ s('sample', 4) }}
+
+{{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+只有自己最靠前的满足条件的 `TRIGGER` 指令才会被**「触发」**。
+
+{{ s('sample', 5) }}
 
 {{ self.sample_file() }}
 
 {{ self.title_sample_description() }}
 
-无私的馈赠。有力的援助。
+无私的馈赠？有力的援助？
 
 {{ s('subtasks') }}
 
 保证所有的指令的格式均正确。
 
 保证输入文件的长度不超过 $5\mathtt{MB}$。
+
+保证能够「执行」至少 $k$ 条「指令」。
 
 保证 $2\le n\le 100$，$1\le m \le 10$，$1\le k \le 3\times 10^5$。
 
