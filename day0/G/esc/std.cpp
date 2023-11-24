@@ -31,17 +31,17 @@ void insert(int a,int to){
 	e[a].next=pe++;
 }
 int q;
-int fa[333],r[333],p[333],siz[333];
+int fa[333],r[333],p[333],siz[333],lc[333],rc[333];
 int op[666];
 bool isrc[333];
 int totp[666];
-int lc(int o){
+int _lc(int o){
 	if(!e[o].next){
 		return 0;
 	}
 	return e[e[o].next].to;
 }
-int rc(int o){
+int _rc(int o){
 	if(!e[o].next||!e[e[o].next].next){
 		return 0;
 	}
@@ -58,7 +58,7 @@ void dfs(int o){
 long long in[333][333],out[333][333];
 std::vector<std::vector<long long> > f[666][333][2],inc[666][333];
 long long profit(int t,int o,int l,int r){
-	return ::r[o]+in[lc(o)][l]+in[rc(o)][r]+out[o][totp[t]-l-r];
+	return ::r[o]+in[lc[o]][l]+in[rc[o]][r]+out[o][totp[t]-l-r];
 }
 const long long INF=0x3f3f3f3f3f3f3f3fll;
 long long INC(int,int,int,int);
@@ -105,12 +105,12 @@ long long F(int t,int o,int ok,int l,int r){
 		}
 	}
 	if(op[t]==2){
-		if(l<siz[lc(o)]){
-			long long tmp=INC(t,lc(o),dmin(l,siz[lc(lc(o))]),l-dmin(l,siz[lc(lc(o))]));
+		if(l<siz[lc[o]]){
+			long long tmp=INC(t,lc[o],dmin(l,siz[lc[lc[o]]]),l-dmin(l,siz[lc[lc[o]]]));
 			cmax(ret,tmp);
 		}
-		if(r<siz[rc(o)]){
-			long long tmp=INC(t,rc(o),dmin(r,siz[lc(rc(o))]),r-dmin(r,siz[lc(rc(o))]));
+		if(r<siz[rc[o]]){
+			long long tmp=INC(t,rc[o],dmin(r,siz[lc[rc[o]]]),r-dmin(r,siz[lc[rc[o]]]));
 			cmax(ret,tmp);
 		}
 	}
@@ -127,7 +127,7 @@ long long INC(int t,int o,int l,int r){
 	if(op[t]==1){
 		long long tmp=F(t,fa[o],1,l,r);
 		cmax(inc[t][o][l][r],tmp);
-		if(r+l<totp[t]&&(isrc[o]?l<siz[lc(fa[o])]:r<siz[rc(fa[o])])){
+		if(r+l<totp[t]&&(isrc[o]?l<siz[lc[fa[o]]]:r<siz[rc[fa[o]]])){
 			tmp=isrc[o]?INC(t,o,l+1,r):INC(t,o,l,r+1);
 			cmax(inc[t][o][l][r],tmp);
 		}
@@ -135,7 +135,7 @@ long long INC(int t,int o,int l,int r){
 	if(op[t]==2){
 		long long tmp=F(t,o,1,l,r);
 		cmax(inc[t][o][l][r],tmp);
-		if(l&&r<siz[rc(o)]){
+		if(l&&r<siz[rc[o]]){
 			tmp=INC(t,o,l-1,r+1);
 			cmax(inc[t][o][l][r],tmp);
 		}
@@ -169,8 +169,12 @@ int main(){
 		siz[fa[i]]+=siz[i];
 	}
 	for(int i=1;i<=n;++i){
-		if(rc(i)){
-			isrc[rc(i)]=1;
+		lc[i]=_lc(i);
+		rc[i]=_rc(i);
+	}
+	for(int i=1;i<=n;++i){
+		if(rc[i]){
+			isrc[rc[i]]=1;
 		}
 	}
 	for(int i=1;i<=n;++i){
@@ -195,11 +199,11 @@ int main(){
 	for(int i=0;i<=q;++i){
 		for(int o=1;o<=n;++o){
 			for(int ok=1;ok>=(op[i]>2);--ok){
-				f[i][o][ok].resize(dmin(siz[lc(o)],totp[i])+1,std::vector<long long>(dmin(siz[rc(o)],totp[i])+1,-0x3f3f3f3f3f3f3f3fll));
+				f[i][o][ok].resize(dmin(siz[lc[o]],totp[i])+1,std::vector<long long>(dmin(siz[rc[o]],totp[i])+1,-0x3f3f3f3f3f3f3f3fll));
 				if(op[i]==1&&o!=1)
-					inc[i][o].resize(dmin(siz[lc(fa[o])],totp[i])+1,std::vector<long long>(dmin(siz[rc(fa[o])],totp[i])+1,-0x3f3f3f3f3f3f3f3fll));
+					inc[i][o].resize(dmin(siz[lc[fa[o]]],totp[i])+1,std::vector<long long>(dmin(siz[rc[fa[o]]],totp[i])+1,-0x3f3f3f3f3f3f3f3fll));
 				if(op[i]==2)
-					inc[i][o].resize(dmin(siz[lc(o)],totp[i])+1,std::vector<long long>(dmin(siz[rc(o)],totp[i])+1,-0x3f3f3f3f3f3f3f3fll));
+					inc[i][o].resize(dmin(siz[lc[o]],totp[i])+1,std::vector<long long>(dmin(siz[rc[o]],totp[i])+1,-0x3f3f3f3f3f3f3f3fll));
 			}
 		}
 	}
