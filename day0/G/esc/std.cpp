@@ -183,7 +183,7 @@ int main(){
 			if(dfn[j]>=dfn[i]&&dfn[j]<=cov[i]){
 				inp.push_back(p[j]);
 			}
-			if(dfn[j]<dfn[i]&&cov[j]>=dfn[i]){
+			else{
 				outp.push_back(p[j]);
 			}
 		}
