@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         } else {
             ouf.ensuref(i > 1, "No operation before");
             int x = ouf.readInt(1, i - 1, "x");
-            int y = ouf.readInt(-(m - 1), m - 1, "y");
+            int y = ouf.readInt(-(n - 1), n - 1, "y");
             min[i] = min[x] + y;
             max[i] = max[x] + y;
             siz[i] = siz[x];
