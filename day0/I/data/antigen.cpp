@@ -17,6 +17,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << N << '\n';
     std::vector<int> S = antigen(N);
+    for (int i = (N + 1) / 2; i < N; ++i) S[i] = 1;
     for (int i = 0; i < N; ++i) {
         std::cout << S[i];
     }
