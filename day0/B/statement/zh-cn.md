@@ -19,3 +19,9 @@
 {{ s('sample', 1) }}
 
 {{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+下图展示了一种满足条件的染色方案，边上的数字表示边权。
+
+{{ img('pic.png', size = 1, align = 'middle', inline = False, label='fig:sample') }}
