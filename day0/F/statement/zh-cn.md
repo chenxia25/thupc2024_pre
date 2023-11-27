@@ -65,7 +65,7 @@
 
 {{ self.title_sample_description() }}
 
-`TRIGGER` 指令的判断条件是「执行」完毕之后。注意不能「触发」自己的 `TRIGGER` 指令。
+`TRIGGER` 指令的「触发」时机是「执行」完毕之后。注意不能「触发」自己的 `TRIGGER` 指令。
 
 {{ s('sample', 2) }}
 
