@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int CASES = 19 , SAMPLE = 1 , _ = 5e5 + 7;
+const int CASES = 20 , SAMPLE = 1 , _ = 5e5 + 7;
 int fa[_]; int find(int x){return fa[x] == x ? x : (fa[x] = find(fa[x]));}
 
 int main(){
