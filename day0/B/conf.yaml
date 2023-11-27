@@ -23,5 +23,7 @@ users:
   fzw:
     std: {expected: == 100, path: fzw/std.cpp}
     bf: {expected: == 0, path: fzw/bf.cpp}
+  psj:
+    std: {expected: == 100, path: psj/std.cpp}
 version: 2
   
