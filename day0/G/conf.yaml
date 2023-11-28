@@ -11,7 +11,7 @@ data:
    score: 100
 folder: problem
 memory limit: 1 GiB
-name: G
+name: mining
 partial score: false
 pre: []
 samples:
