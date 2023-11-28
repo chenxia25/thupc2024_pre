@@ -82,7 +82,7 @@ int main() {
 	F(i, 0, N)
 		w.insert(i);
 	static int cnt[MN];
-	for (int i = 1; i <= N; ++i) {
+	F(i, 1, N) {
 		for (int x : V[i]) {
 			if (x < 0) {
 				if (!--cnt[~x])
