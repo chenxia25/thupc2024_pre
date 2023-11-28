@@ -109,6 +109,6 @@
 
 保证 $2\le n\le 100$，$1\le m \le 10$，$1\le k \le 3\times 10^5$。
 
-保证 $0\le l_i,r_i<n$，$0\le g_i \le 3$。
+保证 $0\le l_i,r_i<n$。
 
 保证 $0\le h \le 1$，$1\le x,y \le m$，$1\le z<n$。所有输入的数都是整数。
