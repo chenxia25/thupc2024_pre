@@ -9,9 +9,7 @@ int main(int argc, char* argv[]) {
 	double p = inf.readStrictDouble(0.000001, 0.999999, 1, 6, "p"); inf.readSpace();
 	int l = inf.readInt(1, n, "l"); inf.readSpace();
 	int r = inf.readInt(l, n, "r");
-	char c = inf.readChar();
-	assert(c == 10 || c == 13);
-	if (c == 13) inf.readChar(10);
+	inf.readChar('\n');
 	inf.readEof();
 	return 0;
 }
