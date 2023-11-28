@@ -18,13 +18,14 @@ int main(int argc, char* argv[]) {
 			for (int j = 0; j < n; j++) quitif(s[j] != 'o' && s[j] != '.', _fail, "s[%d] should be '.' or 'o'.\n", j);
 			for (int j = 0; j < n; j++) a[i][j + 1] = (s[j] == 'o');
 		}
-		int cnt = 0, has = 0;
+		int cnt = 0;
 		for (int i = 1; i <= n; i++) for (int j = 1; j <= n; j++) vis[i][j] = 0;
 		for (int i = 1; i <= n; i++) for (int j = 1; j <= n; j++)
-			if (a[i][j]) { dfs(i, j); has = 1; break; }
+			if (a[i][j]) { dfs(i, j); break; }
 		for (int i = 1; i <= n; i++) for (int j = 1; j <= n; j++)
-			if (a[i][j]) quitif(!vis[i][j], _fail, "Not connected.\n");
-		quitif(has == 0, _fail, "Must has at least 1 'o'.\n");
+			if (a[i][j]) cnt++, quitif(!vis[i][j], _fail, "Not connected.\n");
+		quitif(cnt == 0, _fail, "Must have at least 1 'o'.\n");
+		quitif(cnt > 4, _fail, "Must have no more than 4 'o'.\n");
 	}
 	inf.readEof();
 	return 0;
