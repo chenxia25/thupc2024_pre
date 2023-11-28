@@ -1,6 +1,5 @@
 #include"testlib.h"
 #include <bits/stdc++.h>
-#define re register
 using namespace std;
 
 int main(int argc, char* argv[]) {
