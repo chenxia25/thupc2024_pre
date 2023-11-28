@@ -19,7 +19,9 @@ time limit: 1.0
 title:
   zh-cn: 三步棋
 type: program
-users: 
+users:
   chj:
     std: {expected: "== 100", path: "Wonderseabreeze/std.cpp"}
+  ckw:
+    std: {expected: == 100, path: ckw/std.cpp}
 version: 2
