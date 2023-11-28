@@ -23,4 +23,6 @@ users:
   fzw:
     std1: {expected: == 100, path: fzw/std1.cpp}
     std2: {expected: == 100, path: fzw/std2.cpp}
+  ckw:
+    std: {expected: == 100, path: ckw/std.cpp}
 version: 2
