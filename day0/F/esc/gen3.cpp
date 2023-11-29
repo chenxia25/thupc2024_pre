@@ -37,11 +37,12 @@ int main(){
 		if(i%2==0)printf("%d %d\n",(i+1)%n,(i+2)%n);
 		if(i%2==1)printf("%d %d\n",i,(i+1)%n);
 		if(i%2==0){
-			if(i==0)
+			if(i==0){
 				printf("REPLACE 1 1 ");
 				for(int j=1;j<58000/7;++j){
 					printf("REPLACE 0 1 ");
 				}
+			}
 			puts("SLACKOFF");
 			printf("MIRROR 1 1\n");
 			printf("MOVE 1 %d\n",n-2);

@@ -11,11 +11,11 @@ data:
    score: 100
 folder: problem
 memory limit: 512 MiB
-name: E
+name: somzig
 partial score: false
-pre:
-  - cases: [1]
-samples: []
+pre: []
+samples:
+ - cases: [1]
 time limit: 1.0
 title:
   zh-cn: 转化
