@@ -129,6 +129,7 @@ int main(){
 		scanf("%d %d", &u, &v);
 		arclen = r * acosl(p[u] * p[v] / r / r);
 		cap[i] = k * q[u] * q[v] / arclen / arclen;
+		// fprintf(stderr, "%d %d %Lf %Lf\n", u, v, p[u] * p[v], cap[i]);
 		ep[++epn] = (Edge){cap[i], v, headp[u]};
 		headp[u] = epn;
 		ep[++epn] = (Edge){cap[i], u, headp[v]};
@@ -181,7 +182,7 @@ int main(){
 		for (j = headp[i]; j; j = ep[j].next) {
 			removed[j >> 1] = 1;
 		}
-		vis[s] = 1;
+		
 		que[qh = qt = 0] = s;
 		while (qh <= qt) {
 			u = que[qh++];
@@ -227,14 +228,14 @@ int main(){
 					// fprintf(stderr, "  (%d, %d)[%Lf, %Lf] -> (%d, %d)[%Lf]\n", u, x, dis[u][x], ed[j].w, v, y, dis[v][y]);
 					if (dis[u][x] + ed[j].w < dis[v][y]) {
 						// fprintf(stderr, "  (%d, %d) -> (%d, %d)\n", u, x, v, y);
-						dis[v][y] = dis[u][x] + ed[i].w;
+						dis[v][y] = dis[u][x] + ed[j].w;
 						h.insert(State {v, y});
 					}
 				}
 			}
 		}
 		
-		for (j = headd[i]; j; j = ed[j].next) {
+		for (j = headp[i]; j; j = ep[j].next) {
 			cmin(ans, dis[fid[j]][1]);
 		}
 	}
