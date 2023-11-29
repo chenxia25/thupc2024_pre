@@ -22,4 +22,6 @@ type: program
 users:
   chj:
     std: {expected: "== 100", path: "Wonderseabreeze/std.cpp"}
+  psj:
+    brute_dinic: {expected: "== 0", path: "psj/brute_dinic.cpp"}
 version: 2
