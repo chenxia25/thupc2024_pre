@@ -15,13 +15,16 @@ name: fold
 partial score: false
 samples:
   - cases: [1, 2, 3, 4]
-time limit: 2.5
+time limit: 2
 title:
   zh-cn: 多折较差验证
 type: program
 users:
   chj:
     std: {expected: "== 100", path: "Wonderseabreeze/std.cpp"}
+    faster: {expected: "== 100", path: "Wonderseabreeze/std2.cpp"}
+    compressed: {expected: "== 100", path: "Wonderseabreeze/compressed.cpp"}
   esc:
     bfs: {expected: "< 100", path: "esc/bfs.cpp"}
+    std: {expected: "== 100", path: "esc/std.cpp"}
 version: 2
