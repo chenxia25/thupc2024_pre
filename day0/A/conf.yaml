@@ -14,7 +14,7 @@ name: sort
 partial score: false
 samples:
 - cases: [1]
-time limit: 1.0
+time limit: 0.1
 title:
   zh-cn: 排序大师
 type: program
