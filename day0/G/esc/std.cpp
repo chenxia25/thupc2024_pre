@@ -161,6 +161,10 @@ int main(){
 	}
 	for(int i=1;i<=q;++i){
 		totp[i]=totp[i-1]+(op[i]==3)-(op[i]==4);
+		if(totp[i]<0||totp[i]>=n){
+			puts("No solution.");
+			return 0;
+		}
 	}
 	for(int i=1;i<=n;++i){
 		siz[i]=1;
