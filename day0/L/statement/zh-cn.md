@@ -88,7 +88,7 @@ $N$ 座末日塔之间共有 $M$ 条传输通道。第 $j (1 \le j \le M)$ 条�
 尽管本题不提供直接的可视化工具，但是你仍然可以用下发文件中的 `convert.py`，将满足本题输入格式的文件转换为可以直接输入至 [Geogebra](https://www.geogebra.org/3d) 的绘图指令。`convert.py` 将从标准输入读入数据，并将转换后的绘图指令输出到标准输出。例如，运行 `convert.py`，并将输入重定向到 `1.in`，程序输出如下：
 
 ```bash
-$ py convert.py < 1.in
+$ python convert.py < 1.in
 ======= Commands begin =======
 
 x^2+y^2+z^2=1^2
@@ -106,6 +106,6 @@ Sequence(Text("Tower " + (i), towers(i), true), i, 1, 6)
 ======= Commands end =======
 ```
 
-将 `======= Commands begin =======` 与 `======= Commands end =======` 之间的每行指令**依次**粘贴至代数区的输入框中，即可得到与样例 1 附图中类似的三维对象。
+将 `======= Commands begin =======` 与 `======= Commands end =======` 之间的每行指令**依次**粘贴至代数区的输入框中，即可得到与样例 1 附图中类似的三维对象。你可能需要 安装 Python 3.6 或更高版本来运行 `convert.py`。
 
 这个转换工具，无疑是善良的出题人无私的馈赠。出题人相信，这个美妙的转换工具，可以给拼搏于 AC 这道题的逐梦之路上的你，提供一个有力的援助。
