@@ -14,7 +14,7 @@
 
 {{ self.input_file() }}
 
-输入的第一行一个整数 $n$ 表示序列长度，第二行 $n$ 个整数 $a_1,a_2,\cdots,a_n$ 描述排列。
+输入的第一行一个整数 $n(1 \le n \le {{tl.hn(args['n'])}})$ 表示序列长度，第二行 $n$ 个整数 $a_1,a_2,\cdots,a_n (1 \le a_i \le n)$ 描述排列。
 
 {{ s('output format') }}
 
@@ -29,7 +29,3 @@
 {{ self.title_sample_description() }}
 
 选定 $i = 2, j = 3, k = 5, l = 5$，$1 \textcolor{blue}{4 5} 3 \textcolor{red}{2} 6$ 变为 $1 \textcolor{red}{2} 3 \textcolor{blue}{4 5} 6$。
-
-{{ s('subtasks') }}
-
-对于所有测试数据，$1 \le n \le {{tl.hn(args['n'])}}$，$1 \le a_i \le n$，保证 $a_{1 \sim n}$ 为一个排列。

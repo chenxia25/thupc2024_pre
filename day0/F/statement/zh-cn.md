@@ -24,7 +24,7 @@
 
 - `ACTIVATE h`：**「激活」**第 $h$ 只手指向的机器人，即按顺序「执行」那个机器人的所有「指令」。前一行「指令」「执行」完毕之后才会「执行」后一行。注意在「执行」前面的「指令」时后面的「指令」可能会发生更改，这时需要「执行」更改后的「指令」。当那个机器人的所有「指令」「执行」完毕后，该「指令」才算「执行」完毕。
 
-- `TRIGGER <COMMANDNAME>: <COMMAND>`：其中 `<COMMANDNAME>` 表示「指令」的名称，即一条「指令」中的第一个全大写单词；`<COMMAND>` 表示一条完整的「基础指令」。`TRIGGER` 指令不会被「执行」，即按顺序「执行」时会跳过该「指令」。但是，当一个**其他**机器人「执行」完一条「指令」之后，且「右手」指向自己 的时候，自己最靠前的满足如下条件的 `TRIGGER` 指令（如果有）就会被**「触发」**——「执行」一次对应的 `<COMMAND>`：
+- `TRIGGER <COMMANDNAME>: <COMMAND>`：其中 `<COMMANDNAME>` 表示「指令」的名称，即一条「指令」中的第一个全大写单词；`<COMMAND>` 表示一条完整的「基础指令」。`TRIGGER` 指令不会被「执行」，即按顺序「执行」时会跳过该「指令」。但是，当一个**其他**机器人「执行」完一条「指令」之后，且「右手」指向自己的时候，自己最靠前的满足如下条件的 `TRIGGER` 指令（如果有）就会被**「触发」**——「执行」一次对应的 `<COMMAND>`：
 
   - `<COMMANDNAME>` 不为 `TRIGGER` 时，刚刚「执行」完毕的「指令」为 `<COMMANDNAME>` 指令；
   - `<COMMANDNAME>` 为 `TRIGGER` 时，刚刚「执行」完毕的「指令」是 `TRIGGER` 指令被「触发」时「执行」的「指令」。
@@ -65,22 +65,50 @@
 
 {{ self.title_sample_description() }}
 
+`TRIGGER` 指令的「触发」时机是「执行」完毕之后。注意不能「触发」自己的 `TRIGGER` 指令。
+
 {{ s('sample', 2) }}
+
+{{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+注意在「执行」前面的「指令」时后面的「指令」可能会发生更改，这时需要「执行」更改后的「指令」。
+
+{{ s('sample', 3) }}
+
+{{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+`ACTIVATE` 指令「激活」另一个机器人时，当那个机器人的所有「指令」「执行」完毕后，该「指令」才算「执行」完毕。
+
+{{ s('sample', 4) }}
+
+{{ self.sample_text() }}
+
+{{ self.title_sample_description() }}
+
+只有自己最靠前的满足条件的 `TRIGGER` 指令才会被**「触发」**。
+
+{{ s('sample', 5) }}
 
 {{ self.sample_file() }}
 
 {{ self.title_sample_description() }}
 
-无私的馈赠。有力的援助。
+无私的馈赠？有力的援助？
 
 {{ s('subtasks') }}
 
 保证所有的指令的格式均正确。
 
-保证输入文件的长度不超过 $50\mathtt{MB}$。
+保证输入文件的长度不超过 $5\mathtt{MB}$。
+
+保证能够「执行」至少 $k$ 条「指令」。
 
 保证 $2\le n\le 100$，$1\le m \le 10$，$1\le k \le 3\times 10^5$。
 
-保证 $0\le l_i,r_i<n$，$0\le g_i \le 3$。
+保证 $0\le l_i,r_i<n$。
 
 保证 $0\le h \le 1$，$1\le x,y \le m$，$1\le z<n$。所有输入的数都是整数。

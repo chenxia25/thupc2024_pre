@@ -16,7 +16,7 @@ TA 首先选定了一个实数 $0 < p < 1$，然后生成了 $n$ 个随机数 $x
 
 {{ self.input_file() }}
 
-一行输入四个数 $n, p, l, r$。保证 $1\leq n\leq 10^9$，$p$ 的位数不超过 $6$。
+一行输入四个数 $n, p, l, r$。保证 $1\leq l\leq r\leq n\leq 10^9$，$p$ 的位数不超过 $6$。
 
 {{ s('output format') }}
 
