@@ -22,4 +22,6 @@ type: program
 users:
   zyb:
     std: {expected: == 100, path: zyb/std.cpp}
+  ckw:
+    std: {expected: == 100, path: ckw/std.cpp}
 version: 2
