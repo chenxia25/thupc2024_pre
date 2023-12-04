@@ -30,9 +30,13 @@
 
 {{ self.title_sample_description() }}
 
-你说得对，但是扫雷是一款中文二字英文七字的游戏。
+你说得对，但是扫雷（Winmine）是一款中文二字英文七字的游戏。
 
 {{ s('sample', 2) }}
+
+{{ self.sample_text() }}
+
+{{ s('sample', 3) }}
 
 {{ self.sample_text() }}
 
