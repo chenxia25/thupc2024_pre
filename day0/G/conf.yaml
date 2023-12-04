@@ -24,4 +24,6 @@ type: program
 users:
   esc:
     std: {expected: "==100", path: "esc/std.cpp"}
+  chj:
+    ac: {expected: "== 100", path: "Wonderseabreeze/ac.cpp"}
 version: 2
