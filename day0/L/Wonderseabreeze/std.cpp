@@ -64,6 +64,7 @@ Matrix rotate_to_north(long double theta, long double phi){
 	return rotate_y(-theta) * rotate_z(-phi);
 }
 struct State {
+	long double val;
 	int node;
 	int destr;
 	int cross;
@@ -81,11 +82,11 @@ bool cmp(const int &i, const int &j){
 	return rot_theta[ep[i].to] < rot_theta[ep[j].to];
 }
 bool heapcmp(const State &i, const State &j){
-	return dis[i.node][i.destr][i.cross] == dis[j.node][j.destr][j.cross] \
+	return i.val == j.val \
 		? (i.destr == j.destr ? (\
 			i.node == j.node ? i.cross > j.cross : i.node > j.node
 		) : i.destr > j.destr) \
-		: dis[i.node][i.destr][i.cross] > dis[j.node][j.destr][j.cross];
+		: i.val > j.val;
 }
 struct Heap {
 	State h[81018];		// 3 * M * (L + 1) * 2
@@ -107,7 +108,7 @@ struct Heap {
 	void pop() {
 		if (qh <= qt) {
 			++qh;
-			if (qh == qt) qh = 0, qt = -1;
+			if (qh > qt) qh = 0, qt = -1;
 		}
 		else {
 			pop_heap(h + 1, h + tot + 1, heapcmp);
@@ -171,7 +172,7 @@ int main(){
 		if (j) break;
 	}
 	for (u = t; u != s; u = pre[u]) {
-		// fprintf(stderr, "%d\n", u);
+		// fprintf(stderr, "> %d <\n", u);
 		vonslit[u] = 1;
 		eonslit[pledge[u] ^ 1] = eonslit[pledge[u]] = 1;
 		ecross[pledge[u]] = 1;
@@ -251,7 +252,7 @@ int main(){
 		for (u = 1; u <= m + 2; ++u) for (du = 0; du < 9; ++du) dis[u][du][0] = dis[u][du][1] = 1e200;
 		h.clear();
 		dis[i][0][0] = 0;
-		h.insert((State){i, 0, 0});
+		h.insert((State){0, i, 0, 0});
 		
 		while (!h.empty()) {
 			now = h.top();
@@ -275,17 +276,18 @@ int main(){
 					if (dis[v][du][cv] > dis[u][du][cu] + ed[j].w) {
 						// fprintf(stderr, "\t-[%Lf]-> (%d, %d, %d)\n", ed[j].w, v, du, cv);
 						dis[v][du][cv] = dis[u][du][cu] + ed[j].w;
-						h.insert((State){v, du, cv});
+						h.insert((State){dis[v][du][cv], v, du, cv});
 					}
 				}
 				// Face to vertex
 				for (vecint::iterator it = vlist[fn].begin(); it != vlist[fn].end(); ++it) {
 					v = *it;
 					cv = cu ^ crossfv[fn][v];
+					// fprintf(stderr, "\t-?-> (%d, %d, %d) <%Lf>\n", v, du, cv, dis[v][du][cv]);
 					if (dis[v][du][cv] > dis[u][du][cu]) {
 						// fprintf(stderr, "\t-0-> (%d, %d, %d)\n", v, du, cv);
 						dis[v][du][cv] = dis[u][du][cu];
-						h.push_front((State){v, du, cv});
+						h.push_front((State){0, v, du, cv});
 					}
 				}
 			}
@@ -301,7 +303,7 @@ int main(){
 						if (dis[v][dv][cv] > dis[u][du][cu]) {
 							// fprintf(stderr, "\t-0-> (%d, %d, %d)\n", v, dv, cv);
 							dis[v][dv][cv] = dis[u][du][cu];
-							h.push_front((State){v, dv, cv});
+							h.push_front((State){0, v, dv, cv});
 						}
 					}
 				}

@@ -10,7 +10,7 @@ TASK_NUM = 1
 N_LIMIT = 500
 L_LIMIT = 8
 R_LIMIT = 1000
-K_LIMIT = 1000000
+K_LIMIT = 1000
 Q_LIMIT = 1000
 
 def log(string):
