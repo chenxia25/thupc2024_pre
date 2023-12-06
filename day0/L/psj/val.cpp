@@ -25,7 +25,7 @@ double myReadDouble(double minv, double maxv, string variablename){
 	return ans;
 }
 
-const int _ = 1003;
+const int _ = 3003;
 int N, M, L, s, t; ld R, K;
 struct comp{
 	ld x, y, z; comp(ld _x = 0, ld _y = 0, ld _z = 0){x = _x; y = _y; z = _z;}
@@ -114,7 +114,7 @@ void run(int c){
 	cerr << c << " fin" << endl;
 }
 
-const int CASE = 10 , SAMPLE = 1;
+const int CASE = 33 , SAMPLE = 2;
 
 int main(){
 	for(int i = 1 ; i <= SAMPLE ; ++i){
