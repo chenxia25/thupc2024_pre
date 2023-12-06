@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
             siz[i] = 1;
             sum[i] = mpow(Base, x);
         } else if (op == 2) {
-            ouf.ensuref(i > 1, "No operation before");
+            ensuref(i > 1, "No operation before");
             int x = ouf.readInt(1, i - 1, "x");
             int y = ouf.readInt(1, i - 1, "y");
             min[i] = std::min(min[x], min[y]);
@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
             siz[i] = siz[x] + siz[y];
             sum[i] = (sum[x] + sum[y]) % Mod;
         } else {
-            ouf.ensuref(i > 1, "No operation before");
+            ensuref(i > 1, "No operation before");
             int x = ouf.readInt(1, i - 1, "x");
             int y = ouf.readInt(-(n - 1), n - 1, "y");
             min[i] = min[x] + y;
@@ -65,12 +65,12 @@ int main(int argc, char* argv[]) {
             siz[i] = siz[x];
             sum[i] = (ull) sum[x] * mpow(Base, y) % Mod;
         }
-        ouf.ensuref(min[i] >= 1 && max[i] <= n, "Out of range");
+        ensuref(min[i] >= 1 && max[i] <= n, "Out of range");
         totalCost += siz[i];
-        ouf.ensuref(totalCost <= Threshold, "Operations total cost exceeds %d", Threshold);
+        ensuref(totalCost <= Threshold, "Operations total cost exceeds %d", Threshold);
     }
 
-    ouf.ensuref(sum[m] == chkval, "Construction not correct");
+    ensuref(sum[m] == chkval, "Construction not correct");
 
     ouf.quitf(_ok, "OK total cost = %d", totalCost);
 

@@ -211,7 +211,7 @@ int main(){
 			}
 		}
 	}
-	auto ans=F(1,s,1,0,0);
+	auto ans=F(1,s,op[1]>2,0,0);
 	if(ans<0)puts("No solution.");
 		else printf("%lld\n",ans);
 	return 0;
