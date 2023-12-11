@@ -27,7 +27,7 @@ struct myset {
 		return &(result = h.top());
 	}
 };
-myset<int, vector<int>, greater<int> > ps[N]; // set<int> ps[N];
+set<int> ps[N];
 char s[N]; int n, curv, a[N], L[N], R[N], b[N];
 
 #define lb(x) ((x) & (-(x)))
@@ -40,15 +40,14 @@ inline void update_ps(int p, int l, int v, int d) {
 }
 
 int main() {
-	scanf("%d", &n), fread(s, 1, n + 1, stdin);
+	scanf("%d%s", &n, s + 1);
 	rep (i, 1, n) a[i] = s[i] ^ '0';
 	rep (i, 1, n + 1) L[i] = i - 1, R[i - 1] = i;
 	rep (i, 1, n) update_ps(i, i, 0, 0);
 	rep (v, 1, n)
-		if (ps[curv = v].empty()) PC('-'), PC('1'), PC(' '), PC('0'), PC('\n');
+		if (ps[curv = v].empty()) printf("-1 0\n");
 		else {
-			int p = *ps[v].begin(), l = L[p], r = p;
-			print(p - query(p)), PC(' '), print((int)ps[v].size()), PC('\n');
+			int p = *ps[v].begin(), l = L[p], r = p; printf("%d %d\n", p - query(p), (int)ps[v].size());
 			for (int u = 0; u < v; u = (u << 1) + a[r], r = R[r]) update(r, 1), update_ps(r, r, 0, 1);
 			for (int u = 0, t = 0; l > 0 && (1 << t) <= n && (u += a[l] << t) <= n; l = L[l], t++) update_ps(p, l, u, 1), update_ps(r, l, u, 0);
 			L[r] = L[p], R[L[p]] = r;

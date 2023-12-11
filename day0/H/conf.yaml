@@ -25,4 +25,5 @@ users:
     std2: {expected: == 100, path: fzw/std2.cpp}
   ckw:
     std: {expected: == 100, path: ckw/std.cpp}
+    std_slow: {expected: == 100, path: ckw/std_slow.cpp}
 version: 2
