@@ -27,7 +27,7 @@ struct myset {
 		return &(result = h.top());
 	}
 };
-myset<int, vector<int>, greater<int> > ps[N]; // set<int> ps[N];
+myset<int, vector<int>, greater<int> > ps[N];
 char s[N]; int n, curv, a[N], L[N], R[N], b[N];
 
 #define lb(x) ((x) & (-(x)))
