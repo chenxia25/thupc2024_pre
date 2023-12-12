@@ -15,7 +15,7 @@ name: binary
 partial score: false
 samples: 
 - cases: [1]
-time limit: 4.0
+time limit: 6.0
 title:
   zh-cn: 二进制
 type: program
