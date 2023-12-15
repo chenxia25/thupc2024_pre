@@ -37,6 +37,10 @@ int main(){
 	}
 	for(int i=1;i<=n;++i){
 		c[i]=io::F();
+		if(a[i]){
+			a[i]+=c[i];
+			c[i]=0;
+		}
 	}
 	for(int i=1;i<=n;++i){
 		int b=::b[i],c=::c[i];
@@ -50,12 +54,6 @@ int main(){
 			wild+=tmp;
 			a[i]-=tmp;
 			v[i].b-=tmp;
-			if(a[i]&&v[i].comb){
-				wild+=v[i].comb+1;
-				v[i].comb=0;
-				a[i]--;
-				vis[i]=1;
-			}
 			if(wild&&v[i].comb){
 				wild+=v[i].comb;
 				v[i].comb=0;
@@ -64,15 +62,17 @@ int main(){
 		}
 	}
 	for(int i=1;i<=n;++i){
-		printf("%lld%c",wild+a[i]+v[i].c," \n"[i==n]);
+		printf("%lld%c",wild+a[i]+(wild||a[i]?v[i].c:0)," \n"[i==n]);
 	}
 	long long ans=wild;
 	for(int i=1;i<=n;++i){
-		if(vis[i]||a[i]){
+		if(vis[i]||wild&&v[i].b){
 			ans+=v[i].c;
 			v[i].c=0;
-			ans+=a[i];
 		}
+	}
+	for(int i=1;i<=n;++i){
+		ans+=a[i];
 	}
 	std::sort(v+1,v+n+1,[&](const it &x, const it &y){return x.c>y.c;});
 	for(int i=1;i<=n;++i){

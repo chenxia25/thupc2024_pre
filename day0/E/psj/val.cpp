@@ -3,7 +3,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int CASES = 45 , SAMPLE = 1;
+const int CASES = 53 , SAMPLE = 1;
 
 int main(){
 	for(int i = 1 ; i <= CASES ; ++i){

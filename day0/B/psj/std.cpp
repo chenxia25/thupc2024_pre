@@ -23,9 +23,9 @@ pii prune(int rt, int tarsz){
 	return pii(rt, newrt);
 }
 
-struct data{
+struct dat{
 	vi rt, tar; int fir;
-	data(){
+	dat(){
 		if(!(K & 1)){rt = {newnode(), 0}; tar = {K / 2, K / 2};}
 		else{rt = {newnode(), 0, 0}; tar = {K / 2 , 1, K / 2};}
 		fir = 0;
@@ -37,13 +37,13 @@ struct data{
 			rt[i] = x; tmprt = y;
 		}
 	}
-	friend void operator +=(data &p, data q){p.fir += q.fir; for(int i = 0 ; i < p.rt.size() ; ++i) p.rt[i] = merge(p.rt[i], q.rt[i]);}
+	friend void operator +=(dat &p, dat q){p.fir += q.fir; for(int i = 0 ; i < p.rt.size() ; ++i) p.rt[i] = merge(p.rt[i], q.rt[i]);}
 	void datmark(){datprune(); fir += K; for(int i = 0 ; i < rt.size() ; ++i) mark(rt[i], -2 + 4 / (rt.size() - 1) * i);}
 	int getans(){int ans = fir; for(auto t : rt){while(t){ans += val[t]; t = del(t);}} return ans;}
 };
 
-data dp(int x, int p){
-	data cur; for(auto t : nxt[x]) if(t != p) cur += dp(t, x);
+dat dp(int x, int p){
+	dat cur; for(auto t : nxt[x]) if(t != p) cur += dp(t, x);
 	p ? cur.datmark() : cur.datprune(); return cur;
 }
 
