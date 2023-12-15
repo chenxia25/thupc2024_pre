@@ -155,8 +155,8 @@ Command* newcommand(){
 	assert(false);
 }
 void Command::packedexecute(Robot* robot,bool rev){
-	chkcnt();
 	execute(robot,rev);
+	chkcnt();
 	robot->chktrigger(type);
 }
 bool Command::chktrigger(int type){
@@ -166,7 +166,7 @@ Command* Command::mirror(){
 	return new Modified(this);
 }
 void Command::chkcnt(){
-	if(k--==0){
+	if(--k==0){
 		exit(0);
 	}
 }
