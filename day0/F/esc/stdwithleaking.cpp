@@ -35,7 +35,7 @@ struct Command{
 	virtual void execute(Robot* robot,bool rev=0) = 0;
 	virtual bool chktrigger(int type);
 	virtual Command* mirror();
-	void chkcnt();
+	bool chkcnt();
 	static const int SLACKOFF=1;
 	static const int MOVE=2;
 	static const int SWAP=4;
@@ -155,8 +155,11 @@ Command* newcommand(){
 	assert(false);
 }
 void Command::packedexecute(Robot* robot,bool rev){
+	bool ok=chkcnt();
 	execute(robot,rev);
-	chkcnt();
+	if(ok){
+		exit(0);
+	}
 	robot->chktrigger(type);
 }
 bool Command::chktrigger(int type){
@@ -165,10 +168,14 @@ bool Command::chktrigger(int type){
 Command* Command::mirror(){
 	return new Modified(this);
 }
-void Command::chkcnt(){
+bool Command::chkcnt(){
 	if(--k==0){
+		return true;
+	}
+	if(k<0){
 		exit(0);
 	}
+	return false;
 }
 Slackoff::Slackoff(){
 	type=SLACKOFF;
