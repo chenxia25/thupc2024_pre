@@ -118,8 +118,8 @@ int input_inst(bool fg = 0){
 int main(){
 	srand(time(0));
 	//file("");
-	int qwq = 58;
-	for(int tsd = 56;tsd <= qwq;++tsd){
+	int qwq = 61;
+	for(int tsd = 1;tsd <= qwq;++tsd){
 		cnt = tot = 0;
 		cerr<<tsd<<":"<<endl;
 		tot_bytes = 0;
@@ -139,6 +139,10 @@ int main(){
 		fclose(stdin); 
 		freopen("con","r",stdin);
 		sprintf(ch,"stdwithleaking.exe <%d.in >std.out",tsd);
+		system(ch);
+		sprintf(ch,"fc %d.ans std.out",tsd);
+		system(ch);
+		sprintf(ch,"f.exe <%d.in >std.out",tsd);
 		system(ch);
 		sprintf(ch,"fc %d.ans std.out",tsd);
 		system(ch);
