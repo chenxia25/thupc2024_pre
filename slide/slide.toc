@@ -1,0 +1,19 @@
+\beamer@sectionintoc {1}{Part I (出题人 {\itshape Elegia})}{5}{0}{1}
+\beamer@subsectionintoc {1}{1}{C 前缀和}{6}{0}{1}
+\beamer@subsectionintoc {1}{2}{I 分治乘法}{8}{0}{1}
+\beamer@subsectionintoc {1}{3}{J 套娃}{20}{0}{1}
+\beamer@sectionintoc {2}{Part II (出题人 {\itshape E.Space})}{28}{0}{2}
+\beamer@subsectionintoc {2}{1}{E 转化}{29}{0}{2}
+\beamer@subsectionintoc {2}{2}{F 机器人}{38}{0}{2}
+\beamer@subsectionintoc {2}{3}{G 采矿}{44}{0}{2}
+\beamer@sectionintoc {3}{Part III (出题人 {\itshape fzw})}{53}{0}{3}
+\beamer@subsectionintoc {3}{1}{B 一棵树}{54}{0}{3}
+\beamer@subsectionintoc {3}{2}{H 二进制}{64}{0}{3}
+\beamer@sectionintoc {4}{Part IV (出题人 {\itshape Itst})}{70}{0}{4}
+\beamer@subsectionintoc {4}{1}{A 排序大师}{71}{0}{4}
+\beamer@sectionintoc {5}{Part V (出题人 {\itshape liuzhangfeiabc})}{72}{0}{5}
+\beamer@subsectionintoc {5}{1}{M 你说得对，但是 AIGC}{73}{0}{5}
+\beamer@sectionintoc {6}{Part V (出题人 {\itshape SpiritualKhorosho})}{75}{0}{6}
+\beamer@subsectionintoc {6}{1}{D 多折较差验证}{76}{0}{6}
+\beamer@subsectionintoc {6}{2}{K 三步棋}{77}{0}{6}
+\beamer@subsectionintoc {6}{3}{L 勇闯末日塔}{78}{0}{6}
