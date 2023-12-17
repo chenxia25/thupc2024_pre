@@ -15,5 +15,5 @@
 \beamer@subsectionintoc {5}{1}{A 排序大师}{77}{0}{5}
 \beamer@sectionintoc {6}{Part V (出题人 {\itshape SpiritualKhorosho})}{88}{0}{6}
 \beamer@subsectionintoc {6}{1}{D 多折较差验证}{89}{0}{6}
-\beamer@subsectionintoc {6}{2}{K 三步棋}{97}{0}{6}
+\beamer@subsectionintoc {6}{2}{K 三步棋}{94}{0}{6}
 \beamer@subsectionintoc {6}{3}{L 勇闯末日塔}{98}{0}{6}

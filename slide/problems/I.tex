@@ -44,13 +44,13 @@
 
     考虑设置一个块大小 $L$，将集合剖成 $\frac{N}{L}$ 个大小为 $L$ 的块.
 
-    一个块有 $2L$ 种可能性，我们记每种可能性的块构成的集合为 $S_i$. \pause
+    一个块有 $2^L$ 种可能性，我们记每种可能性的块构成的集合为 $S_i$. \pause
 
-    所有 $S_i$ 的大小总和是 $\frac{N}{L}$，我们先构造出每个 $S_i$，然后平移出它在原序列中的 $S_i+x$，这一步的总代价是 $\frac{N}{L}\lg N + N$. \pause
+    所有 $S_i$ 的大小总和是 $\frac{N}{L}$，我们先构造出每个 $S_i$，然后平移出它在原序列中的 $S_i+x$，这一步的总代价是 $\frac{N}{L}\log_2 N + N$. \pause
 
-    现在我们要合并 $L2^L$ 个集合，把它们用 Huffman 树合并，代价是 $N \lg (L2^L)$ = $NL$. \pause
+    现在我们要合并 $L2^L$ 个集合，把它们用 Huffman 树合并，代价是 $N \log_2 (L2^L) \sim NL$. \pause
 
-    取 $L=\sqrt(\lg ⁡N)$，总代价是 $O(N\sqrt{\lg n})$.
+    取 $L=\sqrt{\log_2 N}$，总代价是 $O(N\sqrt{\log_2 n})$.
 }
 
 \frame
