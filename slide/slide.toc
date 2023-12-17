@@ -13,7 +13,7 @@
 \beamer@subsectionintoc {4}{2}{H 二进制}{67}{0}{4}
 \beamer@sectionintoc {5}{Part IV (出题人 {\itshape Itst})}{73}{0}{5}
 \beamer@subsectionintoc {5}{1}{A 排序大师}{74}{0}{5}
-\beamer@sectionintoc {6}{Part V (出题人 {\itshape SpiritualKhorosho})}{75}{0}{6}
-\beamer@subsectionintoc {6}{1}{D 多折较差验证}{76}{0}{6}
-\beamer@subsectionintoc {6}{2}{K 三步棋}{77}{0}{6}
-\beamer@subsectionintoc {6}{3}{L 勇闯末日塔}{78}{0}{6}
+\beamer@sectionintoc {6}{Part V (出题人 {\itshape SpiritualKhorosho})}{80}{0}{6}
+\beamer@subsectionintoc {6}{1}{D 多折较差验证}{81}{0}{6}
+\beamer@subsectionintoc {6}{2}{K 三步棋}{82}{0}{6}
+\beamer@subsectionintoc {6}{3}{L 勇闯末日塔}{83}{0}{6}
