@@ -31,7 +31,7 @@
 \begin{frame}{正解}
 	不妨假设第三段非空，此时交换前后的状况如下：
 
-	（插入图片ing）
+	\centering\includegraphics[width=\textwidth,keepaspectratio]{sources/A1.jpg}
 
 	最初的四条边
 
@@ -46,6 +46,56 @@ $p_{i-1}+1\rightarrow p_k, p_l+1\rightarrow p_{j+1}, p_{k-1}+1\rightarrow p_i, p
 
 \end{frame}
 
+
 \begin{frame}{正解}
-To Be Continue...
+
+	\centering\includegraphics[width=\textwidth,keepaspectratio]{sources/A2.jpg}
+
+\end{frame}
+
+\begin{frame}{正解}
+
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{sources/A3.jpg}
+
+	这个修改操作相当于做以下操作两次:
+
+	\begin{itemize}
+	\item 选两条边交换它们的出点
+	\end{itemize}
+
+	这个操作会恰好将环数改变 \texttt{1}（读者自证不难），因此一次操作最多将环数减少 \texttt{2}，且不会改变环数的奇偶性。
+
+\end{frame}
+
+\begin{frame}{正解}
+
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{sources/A4.jpg}
+
+	对于第三段为空($j+1=k$)的情况，可以认为是先交换了 $p_{i-1}+1$ 和 $p_j+1$ 的出边，再交换 $p_j+1$ 和 $p_l+1$ 的出边，所以环数也最多改变不超过 \texttt{2}，且不改变环数奇偶性。
+
+\end{frame}
+
+\begin{frame}{正解}
+
+	因此我们只要能找到一种操作方案每次将环数增加 2 就行了。
+
+	考虑如下构造:
+
+	 \begin{enumerate}
+	\item 选择一个最小的 $x$ 满足 $x$ 前面有比 $x$ 大的元素
+	\item 再选择 $x$ 前面最大的元素 $y$
+	\item 此时 $x-1$ 一定在 $y$ 前面（否则与 $x$ 的最小性矛盾），且 $y+1$ 一定在 $x$ 后面（否则与 $y$ 的最大性矛盾），因此用一次操作将 $x-1,\cdots, y, \cdots, x, \cdots, y+1$ 变为 $x-1, x, \cdots, y, y+1$
+	\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{正解}
+
+	在  $x-1,\cdots, y, \cdots, x, \cdots, y+1$  中被修改的四（或三）条边为与 $x$ 相邻的两条边和与 $y+1$ 相邻的两条边，所以这四（或三）条边一定在一个或两个环里.
+
+	而修改过后，出现了额外的两个自环（$x-1, x$ 以及 $y, y+1$）。因为环数奇偶不会改变，因此环数一定加 \texttt{2}. \pause
+
+	\sout{当然也有一些其他的构造可能满足以上条件.}\\ \sout{所以这题正确的做法是，猜一堆结论，写个 gen 拍一拍，拍过了就交.}
+
+
 \end{frame}
